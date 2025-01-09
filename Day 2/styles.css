@@ -1,0 +1,165 @@
+.external-style {
+    color: rgb(110, 5, 110);
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  
+  h1, h2 {
+    margin: 0.5em 0;
+  }
+  header {
+    background: #000000;
+    color: rgb(0, 0, 0);
+    padding: 1em 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .app-name {
+    font-size: 1.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 1em;
+  }
+  
+  .nav-menu a {
+    color: rgb(77, 84, 0);
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .nav-menu a:hover {
+    text-decoration: underline;
+  }
+  
+  #tasks .task {
+    padding: 0.5em;
+    margin: 0.5em 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #tasks .task.overdue {
+    color: rgb(66, 0, 137);
+    font-style: italic;
+  }
+  
+  #tasks .task.completed {
+    text-decoration: line-through;
+    color: #6c757d;
+  }
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 days in a week */
+    gap: 10px;
+    padding: 1em;
+  }
+  
+  .day {
+    padding: 1em;
+    text-align: center;
+    border: 1px solid #003e18;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  
+  /* Current Date Styling */
+  .day.current {
+    background: #007bff; /* Distinct background color */
+    color: rgb(205, 195, 203);
+    font-weight: bold;
+    border: 2px solid #0056b3; /* Enhance the distinctiveness */
+  }
+  
+  /* Weekdays Styling */
+  .day.weekday {
+    background: #f9f9f9; /* Light neutral color */
+    color: #333;
+  }
+  
+  /* Weekends Styling */
+  .day.weekend {
+    background: #ffe5e5; /* Subtle red tone for weekends */
+    color: #b71c1c; /* Dark red text for weekends */
+  }
+  
+  .chat p {
+    margin: 0.5em 0;
+  }
+  
+  .username {
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+  
+  .chat p:nth-child(even) {
+    background: #710000;
+  }
+  
+  .chat p:nth-child(odd) {
+    background: #004a94;
+  }
+  
+  .chat p {
+    padding: 0.5em;
+    border-radius: 5px;
+  }
+  footer {
+    background: #000000;
+    color: #ddd;
+    text-align: center;
+    padding: 1em 0;
+    font-size: 0.8em;
+  }
+  
+  footer a {
+    color: #160c0c;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  /* Ensure text is readable and scales well */
+body {
+  font-size: 16px;
+  color: #710579;
+}
+
+/* Mobile-friendly navigation */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+}
+
+/* Ensure contrast and WCAG compliance */
+h1, h2, .day, .task, .chat p, footer {
+  background-color: #02275a;
+  color: #4b000c;
+}
+
+.day.current, footer {
+  background-color: #002e5b;
+  color: rgb(157, 21, 58);
+}

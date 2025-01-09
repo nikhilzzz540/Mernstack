@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Pricing Table</title>
+  <style>
+    /* Global styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .pricing-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .toggle-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .toggle-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #000000;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .toggle-button:hover {
+      background-color: #0056b3;
+    }
+
+    .pricing-table {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .pricing-card {
+      background: rgb(106, 110, 104);
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .pricing-card.pro {
+      background-color: #2e6000;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .pricing-card h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .pricing-card h2.pro {
+      color: #fff;
+    }
+
+    .pricing-price {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .pricing-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .pricing-card ul li {
+      padding: 10px 0;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .pricing-card ul li:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: -10px;
+      left: 110%;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-size: 12px;
+      white-space: nowrap;
+      z-index: 10;
+      opacity: 1;
+      pointer-events: none;
+      transform: translateX(10px);
+    }
+
+    .pricing-card ul li:hover {
+      color: #221802;
+    }
+
+    .pricing-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 30px;
+      background: #000000;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .pricing-button:hover {
+      background-color: #000000;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .pricing-table {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-card {
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Choose Your Plan</h1>
+  <div class="pricing-container">
+
+    <!-- Toggle Button -->
+    <div class="toggle-container">
+      <button class="toggle-button" onclick="togglePricing()">Toggle Monthly/Yearly Pricing</button>
+    </div>
+
+    <!-- Pricing Table -->
+    <div class="pricing-table">
+      <!-- Basic Plan -->
+      <div class="pricing-card">
+        <h2>Basic</h2>
+        <p class="pricing-price" data-monthly="10" data-yearly="100">₹10/mo</p>
+        <ul>
+          <li data-tooltip="Access to basic features">Basic Features</li>
+          <li data-tooltip="Email support during working hours">Email Support</li>
+          <li data-tooltip="5 GB of storage space">5 GB Storage</li>
+        </ul>
+        <button class="pricing-button">Select Plan</button>
+      </div>
+
+      
+      <div class="pricing-card pro">
+        <h2 class="pro">Pro</h2>
+        <p class="pricing-price" data-monthly="30" data-yearly="300">₹30/mo</p>
+        <ul>
+          <li data-tooltip="Access to all features">All Features</li>
+          <li data-tooltip="Priority email support">Priority Support</li>
+          <li data-tooltip="50 GB of storage space">50 GB Storage</li>
+        </ul>
+        <button class="pricing-button">Select Plan</button>
+      </div>
+
+      
+      <div class="pricing-card">
+        <h2>Premium</h2>
+        <p class="pricing-price" data-monthly="50" data-yearly="500">₹50/mo</p>
+        <ul>
+          <li data-tooltip="All features, plus VIP options">VIP Features</li>
+          <li data-tooltip="24/7 support with personal agent">24/7 Support</li>
+          <li data-tooltip="Unlimited storage space">Unlimited Storage</li>
+        </ul>
+        <button class="pricing-button">Select Plan</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let isYearly = false;
+
+    function togglePricing() {
+      isYearly = !isYearly;
+      const prices = document.querySelectorAll('.pricing-price');
+      prices.forEach(price => {
+        const monthlyPrice = price.getAttribute('data-monthly');
+        const yearlyPrice = price.getAttribute('data-yearly');
+        price.textContent = isYearly ? `$${yearlyPrice}/yr` : `$${monthlyPrice}/mo`;
+      });
+    }
+  </script>
+
+</body>
+</html>

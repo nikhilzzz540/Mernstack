@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3x3 Image Grid with Borders</title>
+    <style>
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 300px;
+            margin: auto;
+        }
+
+        .image-container {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #image1 { border: 12px dotted #430700; }
+        #image2 { border: 10px dashed rgb(1, 70, 21); }
+        #image3 { border: 16px solid rgb(197, 194, 10); }
+        #image4 { border: 14px double rgb(109, 0, 38); }
+        #image5 { border: 15px groove black; }
+        #image6 { border: 18px ridge rgb(6, 65, 2); }
+        #image7 { border: 13px inset rgb(22, 1, 18); }
+        #image8 { border: 22px outset rgb(122, 0, 53); }
+        #image9 { border: 20px outset ; }
+        #image10 { border: hidden; }
+    </style>
+</head>
+<body>
+    <div class="image-grid">
+        <div id="image1" class="image-container"><img src="https://img.freepik.com/free-photo/majestic-mountain-peak-tranquil-winter-landscape-generated-by-ai_188544-15662.jpg" alt="Image 1"></div>
+        <div id="image2" class="image-container"><img src="https://t3.ftcdn.net/jpg/08/06/97/66/360_F_806976654_EnAvq4HssTFMxFosSy7B7kKh9ERbeiFI.jpg" alt="Image 2"></div>
+        <div id="image3" class="image-container"><img src="https://free-3dtextureshd.com/wp-content/uploads/2024/04/100.jpg.webp" alt="Image 3"></div>
+        <div id="image4" class="image-container"><img src="https://t4.ftcdn.net/jpg/09/08/62/45/360_F_908624514_xzpFAjDwgtM9K5FiHJfDDQ90xRQnwsoB.jpg" alt="Image 4"></div>
+        <div id="image5" class="image-container"><img src="https://i.redd.it/4k-wallpaper-sports-cars-on-track-v0-9ujw5dx929sa1.jpg?width=3840&format=pjpg&auto=webp&s=6da227a49a303421979ac42f8f9b23d04a44997a" alt="Image 5"></div>
+        <div id="image6" class="image-container"><img src="https://4kwallpapers.com/images/walls/thumbs/19881.jpg" alt="Image 6"></div>
+        <div id="image7" class="image-container"><img src="https://img.freepik.com/premium-photo/photographer-hd-images-photography-hd-image_1257223-128600.jpg" alt="Image 7"></div>
+        <div id="image8" class="image-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa6jI-A3aGc9W6X9InboiWCjyPsVhjHmOapQ&s" alt="Image 8"></div>
+        <div id="image9" class="image-container"><img src="https://www.pixelstalk.net/wp-content/uploads/images6/4K-Travel-Pictures.jpg" alt="Image 9"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SnapDeal Products</title>
+  <style>
+    /* Global styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* Sticky filter bar */
+    .filter-bar {
+      position: sticky;
+      top: 0;
+      background-color: #fff;
+      padding: 15px 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .filter-bar input {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      flex-grow: 1;
+      min-width: 200px;
+      font-size: 14px;
+    }
+
+    .filter-bar .filter-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .filter-bar button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .filter-bar button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Product grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+
+    /* Responsive grid */
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Product card */
+    .product-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.1);
+    }
+
+    .product-details {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .product-title {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .product-price {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    .product-rating {
+      font-size: 14px;
+      color: #888;
+    }
+
+    .add-to-cart {
+      display: block;
+      margin: 15px auto 0;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-align: center;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-to-cart:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Filter bar -->
+  <div class="filter-bar">
+    <input type="text" placeholder="Search products...">
+    <div class="filter-buttons">
+      <button onclick="filterByPrice()">Filter by Price</button>
+      <button onclick="filterByRating()">Filter by Rating</button>
+    </div>
+  </div>
+
+  <!-- Product grid -->
+  <div class="product-grid">
+    <!-- Product card example -->
+    <div class="product-card" data-price="29.99" data-rating="4">
+      <div class="product-image">
+        <img src="https://www.reliancedigital.in/medias/iPhone-13-Green-PDP-Image-492849506-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3wzNDEyMHxpbWFnZS9qcGVnfGltYWdlcy9oYWIvaDQ3LzEwMDE2MTU1NTAwNTc0LmpwZ3wwODFlNmZlNjJmZGYyNDY5MjVkNDNkODRlYjA3MzgxMWI4ZjQ1OGU5ODI4MWQzMmZkZGE4OTRiMjZlOGFlN2Uw" alt="Product Image">
+      </div>
+      <div class="product-details">
+        <h3 class="product-title">iPhone 13</h3>
+        <p class="product-price">76,400.00 Rs</p>
+        <p class="product-rating">⭐⭐⭐⭐☆</p>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+      </div>
+    </div>
+
+    <div class="product-card" data-price="39.99" data-rating="5">
+      <div class="product-image">
+        <img src="https://www.maplestore.in/cdn/shop/files/r1595_Yellow_PDP_Image_Position-1A__en-IN.jpg?v=1701816389&width=823" alt="Product Image">
+      </div>
+      <div class="product-details">
+        <h3 class="product-title">iPhone 14</h3>
+        <p class="product-price">54,900.00 Rs</p>
+        <p class="product-rating">⭐⭐⭐⭐⭐</p>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+      </div>
+    </div>
+
+    <!-- Add more product cards as needed -->
+  </div>
+
+  <script>
+    function filterByPrice() {
+      const products = document.querySelectorAll('.product-card');
+      products.forEach(product => {
+        const price = parseFloat(product.getAttribute('data-price'));
+        product.style.display = price < 40 ? 'block' : 'none'; // Example filter: price < $40
+      });
+    }
+
+    function filterByRating() {
+      const products = document.querySelectorAll('.product-card');
+      products.forEach(product => {
+        const rating = parseInt(product.getAttribute('data-rating'));
+        product.style.display = rating >= 4 ? 'block' : 'none'; // Example filter: rating >= 4
+      });
+    }
+  </script>
+
+</body>
+</html>

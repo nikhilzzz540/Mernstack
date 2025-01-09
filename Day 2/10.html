@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced Task Management Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0a0096e0, #420505);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: #000000;
+      color: white;
+      box-shadow: 0 4px 8px rgba(156, 38, 38, 0.1);
+    }
+
+    .header .logo {
+      font-size: 1.8em;
+      font-weight: bold;
+    }
+
+    .header .search-bar {
+      flex-grow: 1;
+      margin: 0 20px;
+    }
+
+    .header .search-bar input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #000000;
+      font-size: 1em;
+    }
+
+    .header .profile-menu img {
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      width: 220px;
+      background-color: #333;
+      color: rgb(0, 0, 0);
+      height: 100%;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: white;
+      padding: 12px 15px;
+      margin-bottom: 15px;
+      border-radius: 4px;
+      background-color: #444;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #555;
+    }
+
+    .main-content {
+      flex-grow: 1;
+      padding: 20px;
+    }
+
+    .task-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .task-card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .task-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .task-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.3em;
+    }
+
+    .task-card p {
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    .task-card .icons {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .task-card .icons button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: 10px;
+      font-size: 1.3em;
+      color: #4A90E2;
+      transition: color 0.3s;
+    }
+
+    .task-card .icons button:hover {
+      color: #357ABD;
+    }
+
+    .container {
+      display: flex;
+      flex-grow: 1;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+
+      .header {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">TaskManager</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search tasks...">
+    </div>
+    <div class="profile-menu">
+      <img src="https://via.placeholder.com/40" alt="Profile">
+    </div>
+  </header>
+
+  <br><br><div class="container">
+    <aside class="sidebar">
+      <a href="#">Dashboard</a>
+      <a href="#">Tasks</a>
+      <a href="#">Projects</a>
+      <a href="#">Settings</a>
+    </aside>
+
+    <main class="main-content">
+      <div class="task-grid">
+        <div class="task-card">
+          <h3>Task Title 1</h3>
+          <p>Short description of task 1 goes here.</p>
+          <div class="icons">
+            <button title="Edit">✏️</button>
+            <button title="Delete">🗑️</button>
+          </div>
+        </div>
+        <div class="task-card">
+          <h3>Task Title 2</h3>
+          <p>Short description of task 2 goes here.</p>
+          <div class="icons">
+            <button title="Edit">✏️</button>
+            <button title="Delete">🗑️</button>
+          </div>
+        </div>
+        <div class="task-card">
+          <h3>Task Title 3</h3>
+          <p>Short description of task 3 goes here.</p>
+          <div class="icons">
+            <button title="Edit">✏️</button>
+            <button title="Delete">🗑️</button>
+          </div>
+        </div>
+        <div class="task-card">
+          <h3>Task Title 4</h3>
+          <p>Short description of task 4 goes here.</p>
+          <div class="icons">
+            <button title="Edit">✏️</button>
+            <button title="Delete">🗑️</button>
+          </div>
+        </div>
+        <div class="task-card">
+          <h3>Task Title 5</h3>
+          <p>Short description of task 5 goes here.</p>
+          <div class="icons">
+            <button title="Edit">✏️</button>
+            <button title="Delete">🗑️</button>
+          </div>
+        </div>
+        <div class="task-card">
+          <h3>Task Title 6</h3>
+          <p>Short description of task 6 goes here.</p>
+          <div class="icons">
+            <button title="Edit">✏️</button>
+            <button title="Delete">🗑️</button>
+          </div>
+        </div>
+        <div class="task-card">
+          <h3>Task Title 7</h3>
+          <p>Short description of task 7 goes here.</p>
+          <div class="icons">
+            <button title="Edit">✏️</button>
+            <button title="Delete">🗑️</button>
+          </div>
+        </div>
+        <div class="task-card">
+          <h3>Task Title 8</h3>
+          <p>Short description of task 8 goes here.</p>
+          <div class="icons">
+            <button title="Edit">✏️</button>
+            <button title="Delete">🗑️</button>
+          </div>
+        </div>
+        <div class="task-card">
+          <h3>Task Title 9</h3>
+          <p>Short description of task 9 goes here.</p>
+          <div class="icons">
+            <button title="Edit">✏️</button>
+            <button title="Delete">🗑️</button>
+          </div>
+        </div>
+        <div class="task-card">
+          <h3>Task Title 10</h3>
+          <p>Short description of task 10 goes here.</p>
+          <div class="icons">
+            <button title="Edit">✏️</button>
+            <button title="Delete">🗑️</button>
+          </div>
+        </div>
+        <div class="task-card">
+          <h3>Task Title 11</h3>
+          <p>Short description of task 11 goes here.</p>
+          <div class="icons">
+            <button title="Edit">✏️</button>
+            <button title="Delete">🗑️</button>
+          </div>
+        </div>
+        <div class="task-card">
+          <h3>Task Title 12</h3>
+          <p>Short description of task 12 goes here.</p>
+          <div class="icons">
+            <button title="Edit">✏️</button>
+            <button title="Delete">🗑️</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
