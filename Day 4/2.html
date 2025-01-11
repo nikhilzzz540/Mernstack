@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulb On/Off</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000000;
+        }
+        .bulb {
+            width: 100px;
+            height: 150px;
+            background-color: #00c728;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .bulb.glow {
+            background-color: #ff0000;
+            box-shadow: 0 0 30px #ffd700;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="bulb" class="bulb"></div>
+    <button onclick="toggleBulb()">Button</button>
+
+    <script>
+        function toggleBulb() {
+            const bulb = document.getElementById('bulb');
+            bulb.classList.toggle('glow');
+        }
+    </script>
+</body>
+</html>
